@@ -18,17 +18,17 @@ export default function Slider() {
   return (
     <div className="relative">
       <Swiper
-        spaceBetween={50}
+        spaceBetween={50} //Slaytlar arasındaki boşluk miktarını belirler. Bu, bir slayttan diğerine geçerken aralarındaki mesafeyi tanımlar.
         slidesPerView={1}
-        autoplay={{
+        autoplay={{          //Otomatik oynatmayı ayarlar. delay özelliği, slaytlar arasındaki geçiş süresini belirtir (milisaniye cinsinden). disableOnInteraction, kullanıcı slayta etkileşimde bulunduğunda otomatik oynatmanın devre dışı bırakılıp bırakılmayacağını belirler.
           delay: 5000,
           disableOnInteraction: false,
         }}
-        rewind={true}
+        rewind={true} // Slaytların geri sarma özelliğini açar veya kapatır. Bu, son slayttan ilk slayta geçtiğinizde yeniden başa dönüp dönmeyeceğini belirler.
         modules={[Autoplay, Pagination]}
-        onAutoplayTimeLeft={onAutoplayTimeLeft}
-        scrollbar={{ draggable: true }}
-        pagination={{ clickable: true }}
+        onAutoplayTimeLeft={onAutoplayTimeLeft} //  Otomatik oynatma zamanlayıcısının geri sayımı için bir fonksiyondur. Saniye cinsinden kalan süreyi ve ilerlemenin yüzdesini alır.
+        scrollbar={{ draggable: true }} //Sürükleme çubuğunu etkinleştirir ve özelleştirilebilir bir sürükleme çubuğu ekler.
+        pagination={{ clickable: true }} //Slayt sayısını ve geçiş durumunu göstermek için kullanılan pagination (sayfalama) öğesini etkinleştirir. clickable özelliği, pagination'ın tıklanabilir olup olmadığını belirtir. Bu, slaytlar arasında geçiş yapmayı 
       >
         {sliderData.map((slider, index) => (
           <SwiperSlide key={index}>
